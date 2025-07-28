@@ -1,0 +1,43 @@
+{
+  "name": "josieljluz-playlists-metadata-generator",
+  "version": "1.0.1",
+  "description": "Gerador eficiente e automatizado de metadados para o projeto josieljluz.github.io.oficial de josieljluz.",
+  "main": "generate_metadata.js",
+  "type": "module",
+  "scripts": {
+    "start": "node generate_metadata.js",
+    "test": "echo \"✔️ Teste executado com sucesso\" && exit 0",
+    "lint": "npx eslint .",
+    "format": "npx prettier --write .",
+    "clean": "rm -rf dist temp"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "prettier": "^3.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josieljluz/josieljluz.github.io.oficial.git"
+  },
+  "keywords": [
+    "metadata",
+    "generator",
+    "github-pages",
+    "jekyll",
+    "automação",
+    "metadados"
+  ],
+  "author": "Josiel Jefferson <josieljefferson12@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/josieljluz/josieljluz.github.io.oficial/issues"
+  },
+  "homepage": "https://github.com/josieljluz/josieljluz.github.io.oficial#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

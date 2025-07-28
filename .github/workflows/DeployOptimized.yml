@@ -1,0 +1,266 @@
+# ========================================================================
+# 🚀 Workflow de Implementação Automática no GitHub Pages (Otimizado para Jekyll)
+# ========================================================================
+
+# Nome do workflow que aparecerá na interface do GitHub Actions
+name: "🚀 Deploy Automático do Jekyll no GitHub Pages (Otimizado)"
+
+# ================================
+# 🔥 Configuração de Gatilhos
+# ================================
+on:
+  # Acionar quando houver push na branch main
+  push:
+    branches: ["main"]
+    # Monitorar todas as alterações de arquivos (não apenas caminhos específicos)
+    paths: ['**/*']
+  
+  # Permitir acionamento manual pela interface do GitHub
+  workflow_dispatch:
+  
+  # Configuração do agendamento automático do workflow
+  schedule:
+  # Agenda a execução diária ao meio-dia (12:00) no horário UTC
+  # A sintaxe usa padrão cron com 5 campos (minuto hora dia mês dia-da-semana)
+    - cron: '0 15 * * *'
+      timezone: 'America/Fortaleza'  # Usa o mesmo fuso que Brasília (UTC-3)
+  # Explicação detalhada da sintaxe cron:
+  # - '0'    - no minuto 0 (em ponto)
+  # - '15'   - às 15 horas UTC (que equivalem a 12h em Fortaleza)
+  # - '*'    - todos os dias do mês
+  # - '*'    - todos os meses do ano
+  # - '*'    - todos os dias da semana (de domingo a sábado)
+  
+  # Observações importantes:
+  # 1. O horário é sempre em UTC (Tempo Universal Coordenado)
+  # 2. O GitHub pode atrasar em até 15 minutos a execução agendada
+  # 3. O workflow não será executado se não houver alterações no repositório,
+  #    a menos que você configure para rodar sempre
+
+# ================================
+# 🔐 Configurações de Permissão
+# ================================
+permissions:
+  contents: write  # Necessário para fazer commit de alterações no repositório
+  pages: write     # Necessário para implementação no GitHub Pages
+  id-token: write  # Necessário para geração de token OIDC
+
+# ================================
+# 🎛️ Controle de Concorrência
+# ================================
+concurrency:
+  group: "pages"   # Agrupar todas as implementações no Pages
+  cancel-in-progress: false  # Não cancelar execuções existentes (alterado do padrão)
+
+# ================================
+# 🏗️ Definição dos Jobs
+# ================================
+jobs:
+  # ================================
+  # ⚙️ Job de Configuração Inicial
+  # ================================
+  configuracao:
+    name: "⚙️ Configuração Inicial"
+    runs-on: ubuntu-latest
+    
+    steps:
+      # ------------------------------
+      # Passo 1: Checkout do Repositório
+      # ------------------------------
+      - name: "📥 Baixar Código-Fonte"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Obter histórico completo do git
+          path: main-repo # Fazer checkout em subdiretório
+
+      # ------------------------------
+      # Passo 2: Configuração do Node.js
+      # ------------------------------
+      - name: "⎔ Configurar Node.js"
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  # Usando versão LTS
+
+      # ------------------------------
+      # Passo 3: Manipulação do package.json
+      # ------------------------------
+      - name: "📄 Verificar/Criar package.json"
+        run: |
+          cd main-repo
+          # Criar package.json básico se não existir
+          if [ ! -f "package.json" ]; then
+            echo "Criando package.json básico..."
+            echo '{
+              "name": "temp-site",
+              "version": "1.0.0",
+              "scripts": {
+                "start": "echo 'No script defined' && exit 0"
+              }
+            }' > package.json
+          fi
+
+      # ------------------------------
+      # Passo 4: Instalação de Dependências
+      # ------------------------------
+      - name: "📦 Instalar Dependências"
+        run: |
+          cd main-repo
+          # Instalar sem lockfile para evitar conflitos
+          npm install --no-package-lock
+          # Instalação regular
+          npm install
+
+      # ------------------------------
+      # Passo 5: Geração de Metadados
+      # ------------------------------
+      - name: "🏷️ Gerar Metadados"
+        run: |
+          cd main-repo
+          npm start
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ------------------------------
+      # Passo 6: Commit das Alterações
+      # ------------------------------
+      - name: "💾 Salvar Alterações"
+        run: |
+          cd main-repo
+          # Configurar usuário do git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Adicionar arquivo de metadados
+          git add files_metadata.json
+          
+          # Verificar se há alterações para commitar
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração para commitar"
+          else
+            # Tentar fazer commit e push com resolução de conflitos
+            git commit -m "Atualização automática de metadados [skip ci]" || echo "Commit falhou - continuando..."
+            git pull --rebase origin main || echo "Rebase falhou - continuando..."
+            git push origin main || echo "Push falhou - continuando..."
+          fi
+        continue-on-error: true  # Não falhar o workflow em caso de erros
+
+  # ================================
+  # 🏗️ Job de Construção do Site
+  # ================================
+  construcao:
+    name: "🏗️ Construção do Site"
+    needs: configuracao  # Depende do job de configuração
+    runs-on: ubuntu-latest
+    
+    steps:
+      # ------------------------------
+      # Passo 1: Checkout do Repositório
+      # ------------------------------
+      - name: "📥 Baixar Código-Fonte"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: main-repo
+
+      # ------------------------------
+      # Passo 2: Configuração do Ambiente Ruby
+      # ------------------------------
+      - name: "💎 Configurar Ruby"
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'  # Recomendado para Jekyll
+          bundler-cache: true  # Cache de gems para performance
+
+      # ------------------------------
+      # Passo 3: Configuração do GitHub Pages
+      # ------------------------------
+      - name: "⚙️ Configurar GitHub Pages"
+        uses: actions/configure-pages@v5
+
+      # ------------------------------
+      # Passo 4: Build do Jekyll
+      # ------------------------------
+      - name: "🛠️ Construir Site (Jekyll)"
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./main-repo  # Diretório de origem
+          destination: ./_site  # Diretório de saída
+
+      # ------------------------------
+      # Passo 5: Upload do Artefato
+      # ------------------------------
+      - name: "📤 Enviar Artefatos"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './_site'  # Caminho para o site construído
+
+  # ================================
+  # 🚀 Job de Implementação
+  # ================================
+  deploy:
+    name: "🚀 Publicar no GitHub Pages"
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: construcao  # Depende do job de construção
+    
+    steps:
+      # ------------------------------
+      # Passo 1: Verificar Implementações Existentes
+      # ------------------------------
+      - name: "🔍 Verificar Publicações Existentes"
+        id: verificar-deploy
+        run: |
+          # Consultar API do GitHub para builds mais recentes do Pages
+          resposta=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages/builds/latest")
+          
+          # Extrair status e informações do gatilho
+          status=$(echo "$resposta" | jq -r '.status')
+          trigger=$(echo "$resposta" | jq -r '.trigger.name')
+          
+          # Lógica de decisão
+          if [[ "$status" == "building" && "$trigger" == "GitHub Pages" ]]; then
+            echo "🔄 Deployment oficial em andamento - abortando"
+            echo "pular_deploy=true" >> $GITHUB_OUTPUT
+          elif [[ "$status" == "built" && "$trigger" == "GitHub Pages" ]]; then
+            echo "✅ Deployment oficial já concluído - abortando"
+            echo "pular_deploy=true" >> $GITHUB_OUTPUT
+          else
+            echo "✋ Nenhum deployment oficial ativo - podemos prosseguir"
+            echo "pular_deploy=false" >> $GITHUB_OUTPUT
+          fi
+
+      # ------------------------------
+      # Passo 2: Implementar no GitHub Pages
+      # ------------------------------
+      - name: "🌐 Publicar Site"
+        if: steps.verificar-deploy.outputs.pular_deploy != 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  # ================================
+  # ℹ️ Job de Status Final
+  # ================================
+  status:
+    name: "ℹ️ Status Final"
+    needs: [configuracao, deploy]  # Depende dos jobs de configuração e implementação
+    runs-on: ubuntu-latest
+    timeout-minutes: 5  # Evitar travamentos
+    
+    steps:
+      # ------------------------------
+      # Passo 1: Exibir Status Final
+      # ------------------------------
+      - name: "Exibir Resultado"
+        run: |
+          if [[ "${{ needs.deploy.result }}" == "success" ]]; then
+            echo "✅ Deployment concluído com sucesso!"
+            echo "URL: ${{ needs.deploy.outputs.page_url }}"
+          elif [[ "${{ steps.verificar-deploy.outputs.pular_deploy }}" == "true" ]]; then
+            echo "⏸️ Deployment não foi necessário - já existe um processo ativo"
+          else
+            echo "❌ Falha no processo de deployment"
+          fi

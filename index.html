@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="system">
+<head>
+  <!-- Metadados básicos otimizados -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Página de downloads de arquivos mantida por Josiel Jefferson">
+  <meta name="keywords" content="downloads, arquivos, Josiel Jefferson, projetos">
+  <meta name="author" content="Josiel Jefferson">
+  
+  <!-- Metadados Open Graph melhorados -->
+  <meta property="og:title" content="Josiel Jefferson - Página de Downloads">
+  <meta property="og:description" content="Acesse diversos arquivos para download mantidos por Josiel Jefferson">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seusite.com">
+  <meta property="og:image" content="https://seusite.com/imagem-compartilhamento.jpg">
+  
+  <!-- Configuração de tema otimizada -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  
+  <title>Josiel Jefferson - Downloads</title>
+  
+  <!-- Pré-carregamento otimizado -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://github.com" crossorigin>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+  <link rel="preload" href="style.css" as="style">
+  <link rel="preload" href="script.js" as="script">
+  
+  <!-- Carregamento de fontes com fallback robusto -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+  
+  <!-- CSS crítico otimizado -->
+  <style>
+    /* 
+    ============================================
+    VARIÁVEIS CSS COM FALLBACKS PARA TEMA CLARO/ESCURO
+    ============================================ 
+    */
+    :root {
+      /* Define que o site suporta temas claro e escuro */
+      color-scheme: light dark;
+      
+      /* Cores para tema claro (padrão) */
+      --primary-color: #2563eb;         /* Azul primário */
+      --primary-hover: #1d4ed8;         /* Azul mais escuro para hover */
+      --text-color: #1e293b;            /* Cor do texto - cinza escuro */
+      --text-color-dark: #f1f5f9;       /* Cor do texto para tema escuro - branco acinzentado */
+      --bg-color: #ffffff;              /* Cor de fundo - branco */
+      --bg-color-dark: #0f172a;         /* Cor de fundo para tema escuro - azul muito escuro */
+      --border-color: #e2e8f0;          /* Cor da borda - cinza claro */
+      --border-color-dark: #334155;     /* Cor da borda para tema escuro - cinza azulado escuro */
+      --card-bg: #f8fafc;               /* Cor de fundo dos cards - branco acinzentado */
+      --card-bg-dark: #1e293b;          /* Cor de fundo dos cards para tema escuro */
+      --transition: 0.2s ease;          /* Transição suave para efeitos hover e mudança de tema */
+    }
+    
+    /* 
+    ============================================
+    VARIÁVEIS PARA TEMA ESCURO (ativado via data-theme)
+    ============================================ 
+    */
+    [data-theme="dark"] {
+      --primary-color: #3b82f6;         /* Azul mais claro para melhor visibilidade no escuro */
+      --primary-hover: #60a5fa;         /* Azul mais claro para hover */
+      --text-color: var(--text-color-dark); /* Usa a cor de texto escuro */
+      --bg-color: var(--bg-color-dark);     /* Usa o fundo escuro */
+      --border-color: var(--border-color-dark); /* Bordas escuras */
+      --card-bg: var(--card-bg-dark);       /* Cards com fundo escuro */
+    }
+    
+    /* 
+    ============================================
+    RESET CSS MODERNO PARA PADRÃO CONSISTENTE
+    ============================================ 
+    */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; /* Modelo de caixa mais intuitivo */
+    }
+    
+    /* 
+    ============================================
+    ESTILOS BASE PARA MELHOR LEGIBILIDADE
+    ============================================ 
+    */
+    html {
+      scroll-behavior: smooth; /* Rolagem suave para âncoras */
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, 
+                   Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Fonte do sistema */
+      line-height: 1.6; /* Espaçamento entre linhas para melhor legibilidade */
+      color: var(--text-color); /* Usa variável de cor */
+      background-color: var(--bg-color); /* Usa variável de fundo */
+      transition: background-color var(--transition), color var(--transition); /* Transição suave para tema */
+      min-height: 100vh; /* Mínimo de altura da viewport */
+      display: flex;
+      flex-direction: column; /* Layout em coluna */
+    }
+    
+    /* 
+    ============================================
+    ESTILOS DO CABEÇALHO E RODAPÉ
+    ============================================ 
+    */
+    header, footer {
+      padding: clamp(1rem, 2vw, 1.5rem); /* Padding responsivo com clamp(min, ideal, max) */
+      text-align: center;
+    }
+    
+    header {
+      border-bottom: 1px solid var(--border-color); /* Borda inferior sutil */
+      background-color: var(--card-bg); /* Fundo igual aos cards */
+    }
+    
+    h1 {
+      font-size: clamp(1.5rem, 3vw, 1.8rem); /* Tamanho responsivo */
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      color: color-mix(in srgb, var(--text-color) 70%, transparent); /* Texto mais claro */
+      font-size: 0.9rem;
+    }
+    
+    /* 
+    ============================================
+    ESTILOS DO INDICADOR DE CARREGAMENTO
+    ============================================ 
+    */
+    #loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      gap: 1rem; /* Espaço entre elementos */
+    }
+    
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1); /* Anel externo transparente */
+      border-radius: 50%; /* Forma circular */
+      border-top: 4px solid var(--primary-color); /* Anel superior colorido */
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite; /* Animação de rotação */
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* 
+    ============================================
+    LAYOUT RESPONSIVO BÁSICO
+    ============================================ 
+    */
+    .container {
+      width: min(100% - 2rem, 1200px); /* Largura máxima de 1200px com padding */
+      margin-inline: auto; /* Centraliza horizontalmente */
+    }
+    
+    /* 
+    ============================================
+    CLASSES DE ACESSIBILIDADE
+    ============================================ 
+    */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+  
+  <!-- CSS principal carregado de forma otimizada -->
+  <link rel="stylesheet" href="style.css" media="all">
+</head>
+<body>
+  <!-- Cabeçalho semântico melhorado -->
+  <header role="banner">
+    <div class="container">
+      <h1>📁 ARQUIVOS PARA DOWNLOAD</h1>
+      <p class="subtitle">Projeto josielluz no GitHub</p>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal semântico -->
+  <main id="main-content" role="main" class="container">
+    <!-- Estatísticas com melhor semântica -->
+    <section aria-labelledby="stats-heading" class="stats-section">
+      <h2 id="stats-heading" class="visually-hidden">Estatísticas dos Arquivos</h2>
+      <div id="stats-container" class="stats-container">
+        <div class="stat-card">
+          <div class="stat-value" id="total-files" aria-live="polite">0</div>
+          <div class="stat-label">Arquivos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="total-size" aria-live="polite">0 MB</div>
+          <div class="stat-label">Tamanho Total</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="last-update" aria-live="polite">-</div>
+          <div class="stat-label">Última Atualização</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barra de pesquisa acessível -->
+    <section aria-labelledby="search-heading" class="search-section">
+      <h2 id="search-heading" class="visually-hidden">Pesquisar Arquivos</h2>
+      <div class="search-container">
+        <!-- <label for="search" class="visually-hidden">Pesquisar arquivos</label> -->
+        <input type="search" id="search" placeholder="Pesquisar arquivos..." 
+               aria-label="Pesquisar arquivos" autocomplete="off">
+      </div>
+    </section>
+
+    <!-- Controles de interface melhorados -->
+    <section aria-labelledby="controls-heading" class="controls-section">
+      <h2 id="controls-heading" class="visually-hidden">Controles da Lista</h2>
+      <div class="controls">
+        <div class="control-group">
+          <label for="sort">Ordenar por:</label>
+          <select id="sort" aria-label="Ordenar arquivos">
+            <option value="name">Nome (A-Z)</option>
+            <option value="nameDesc">Nome (Z-A)</option>
+            <option value="date">Data (Mais recentes)</option>
+            <option value="dateOldest">Data (Mais antigo)</option>
+            <option value="size">Tamanho (Maior)</option>
+            <option value="sizeSmallest">Tamanho (Menor)</option>
+            <option value="type">Tipo (A-Z)</option>
+            <option value="typeDesc">Tipo (Z-A)</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="items-per-page">Itens por página:</label>
+          <select id="items-per-page" aria-label="Itens por página">
+            <option value="10">10</option>
+            <option value="20" selected>20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="theme">Tema:</label>
+          <select id="theme" aria-label="Escolher tema">
+            <option value="light">Claro</option>
+            <option value="dark">Escuro</option>
+            <option value="system" selected>Sistema</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Indicador de carregamento acessível -->
+    <div id="loading" class="loading" aria-live="polite" aria-busy="true">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Carregando lista de arquivos...</p>
+    </div>
+
+    <!-- Lista de arquivos semântica -->
+    <section aria-labelledby="files-heading" class="files-section">
+      <h2 id="files-heading" class="visually-hidden">Lista de Arquivos</h2>
+      <div id="file-list-container">
+        <ul id="file-list" aria-live="polite" role="list"></ul>
+      </div>
+    </section>
+
+    <!-- Paginação melhorada -->
+    <nav aria-labelledby="pagination-heading" class="pagination-section">
+      <h2 id="pagination-heading" class="visually-hidden">Navegação de Páginas</h2>
+      <div id="pagination-container" class="pagination-container">
+        <div id="pagination-controls" class="pagination-controls"></div>
+        <div id="pagination-info" class="pagination-info" aria-live="polite"></div>
+      </div>
+    </nav>
+  </main>
+
+  <!-- Rodapé semântico melhorado -->
+  <footer role="contentinfo">
+    <div class="container">
+      <p>Projeto mantido por <a href="https://github.com/josieljluz" target="_blank" rel="noopener noreferrer">Josiel Jefferson</a></p>
+      
+      <!-- Links sociais acessíveis -->
+      <div class="social-links" aria-label="Redes sociais">
+        <a href="https://github.com/josieljluz" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub (abre em nova janela)">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://gitlab.com/josieljluz" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitLab (abre em nova janela)">
+          <i class="fab fa-gitlab" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/+5589981073340" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp (abre em nova janela)">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="https://t.me/ElectronSpeedX" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Telegram (abre em nova janela)">
+          <i class="fab fa-telegram" aria-hidden="true"></i>
+        </a>
+        <a href="https://facebook.com/josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook (abre em nova janela)">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a href="https://instagram.com/josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram (abre em nova janela)">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://twitter.com/josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter (abre em nova janela)">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.threads.net/@josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Threads (abre em nova janela)">
+          <i class="fab fa-threads" aria-hidden="true"></i>
+        </a>
+        <a href="https://tiktok.com/@josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok (abre em nova janela)">
+          <i class="fab fa-tiktok" aria-hidden="true"></i>
+        </a>
+        <a href="https://linkedin.com/in/josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn (abre em nova janela)">
+          <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+        <a href="mailto:josiel@example.com" class="social-link" aria-label="Enviar e-mail">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+        <a href="https://x.com/josieljeff" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X (Twitter) (abre em nova janela)">
+          <i class="fab fa-x-twitter" aria-hidden="true"></i>
+                <a href="https://bitbucket.org/josieljluz" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Bitbucket (abre em nova janela)">
+          <i class="fab fa-bitbucket" aria-hidden="true"></i>
+        </a>
+      </div>
+      
+      
+      <!-- Informação de build com data dinâmica -->
+      <p class="build-info">Última atualização: <time id="build-date" datetime=""></time></p>
+	  
+    </div>
+  </footer>
+  
+  <footer>
+    <p>© <span id="current-year"></span> Projeto josielluz - Todos os direitos reservados</p>
+    <script>
+      // Ano atual no rodapé
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+  </footer>
+  
+  <!-- Scripts otimizados -->
+  <script src="script.js" defer></script>
+  
+  <script>
+  /**
+   * Função principal para inicialização otimizada
+   */
+  document.addEventListener('DOMContentLoaded', () => {
+    // Configuração do tema aprimorada
+    const setupTheme = () => {
+      const getSystemTheme = () => 
+        window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      
+      const applyTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', 
+          theme === 'system' ? getSystemTheme() : theme);
+      };
+      
+      const savedTheme = localStorage.getItem('theme') || 'system';
+      applyTheme(savedTheme);
+      
+      // Atualiza o select
+      const themeSelect = document.getElementById('theme');
+      if (themeSelect) {
+        themeSelect.value = savedTheme;
+        themeSelect.addEventListener('change', (e) => {
+          localStorage.setItem('theme', e.target.value);
+          applyTheme(e.target.value);
+        });
+      }
+      
+      // Observa mudanças no tema do sistema
+      window.matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', () => {
+          if (localStorage.getItem('theme') === 'system') {
+            applyTheme('system');
+          }
+        });
+    };
+    
+    // Atualização de datas otimizada
+    const setupDates = () => {
+      const formatDate = (date) => 
+        new Intl.DateTimeFormat('pt-BR', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        }).format(date).replace(',', ' -');
+      
+      const updateDates = () => {
+        const now = new Date();
+        const formattedDate = formatDate(now);
+        
+        document.querySelectorAll('[data-date]').forEach(el => {
+          el.textContent = formattedDate;
+          if (el.tagName === 'TIME') {
+            el.setAttribute('datetime', now.toISOString());
+          }
+        });
+      };
+      
+      updateDates();
+      setInterval(updateDates, 1000);
+    };
+    
+    // Inicialização dos módulos
+    setupTheme();
+    setupDates();
+    
+    // Carrega o conteúdo principal
+    if (window.initFileManager) {
+      window.initFileManager();
+    } else {
+      document.addEventListener('fileManagerLoaded', window.initFileManager);
+    }
+  });
+
+  // =================================================================
+  // Código adaptado do generate_metadata.js para funcionar no navegador
+  // =================================================================
+
+  const fs = require('fs');
+  const path = require('path');
+
+  import fs from 'fs';
+  import path from 'path';
+  import { fileURLToPath } from 'url';
+
+  // Equivalente ao __dirname em ESM
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  // Configurações do projeto adaptadas para o navegador
+  const config = {
+    outputFile: 'files_metadata.json',
+    excludedFiles: [
+      'index.html',
+      'style.css',
+      'script.js',
+      '.gitlab-ci.yaml',
+      'files_metadata.json',
+      'generate_metadata.js',
+      'package.json',
+      'package-lock.json',
+      '.gitlab-ci.yml',
+      '.gitignore',
+      'Gemfile',
+      '_config.yml',
+      'README.md',
+      'playlists.py',
+      'playlists.m3u.py',
+      'requirements.txt',
+      'playlists.log',
+      'Gemfile.lock'
+    ],
+    githubUser: 'josieljluz',
+    githubRepo: 'josieljluz.github.io.oficial',
+    branch: 'main' // No navegador, não temos acesso a CI_COMMIT_REF_NAME
+  };
+
+  // Cache para armazenar tamanhos de arquivo já formatados
+  const sizeCache = new Map();
+
+  /**
+   * Formata o tamanho do arquivo de forma legível para humanos
+   * @param {number} bytes - Tamanho do arquivo em bytes
+   * @returns {string} Tamanho formatado (ex: "4.20 MB")
+   */
+  function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    
+    if (sizeCache.has(bytes)) {
+      return sizeCache.get(bytes);
+    }
+
+    const units = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    const unitIndex = Math.floor(Math.log(bytes) / Math.log(1024));
+    const formattedSize = parseFloat((bytes / Math.pow(1024, unitIndex)).toFixed(2)) + ' ' + units[unitIndex];
+
+    sizeCache.set(bytes, formattedSize);
+    return formattedSize;
+  }
+
+  /**
+   * Formata a data no padrão brasileiro com fuso horário de Fortaleza (UTC-3)
+   * @param {Date} date - Objeto de data JavaScript
+   * @returns {string} Data formatada (ex: "21/07/2023 - 15:30:45.123 (UTC-3)")
+   */
+  function formatDate(date) {
+    const pad = (num, digits = 2) => num.toString().padStart(digits, '0');
+    
+    // Ajusta para o fuso horário de Fortaleza (UTC-3)
+    const timezoneOffset = -3 * 60; // -3 horas em minutos
+    const adjustedDate = new Date(date.getTime() + (timezoneOffset * 60 * 1000));
+    
+    return [
+      `${pad(adjustedDate.getDate())}/${pad(adjustedDate.getMonth() + 1)}/${adjustedDate.getFullYear()}`,
+      `${pad(adjustedDate.getHours())}:${pad(adjustedDate.getMinutes())}:${pad(adjustedDate.getSeconds())}.${pad(adjustedDate.getMilliseconds(), 3)}`,
+      '(UTC-3)'
+    ].join(' - ');
+  }
+
+  // Mapeamento de extensões de arquivo para tipos MIME
+  const MIME_TYPES = {
+    txt: 'text/plain',
+    pdf: 'application/pdf',
+    png: 'image/png',
+    jpg: 'image/jpeg',
+    jpeg: 'image/jpeg',
+    gif: 'image/gif',
+    mp3: 'audio/mpeg',
+    mp4: 'video/mp4',
+    m3u: 'audio/x-mpegurl',
+    m3u8: 'application/x-mpegURL'
+  };
+
+  /**
+   * Obtém o tipo MIME baseado na extensão do arquivo
+   * @param {string} extension - Extensão do arquivo (sem o ponto)
+   * @returns {string} Tipo MIME correspondente
+   */
+  function getMimeType(extension) {
+    return MIME_TYPES[extension.toLowerCase()] || 'application/octet-stream';
+  }
+
+  /**
+   * Função para buscar metadados dos arquivos via API (simulando o comportamento do Node.js)
+   * No navegador, precisamos buscar os metadados de um arquivo JSON pré-gerado
+   */
+  async function fetchFilesMetadata() {
+    try {
+      const response = await fetch(config.outputFile);
+      if (!response.ok) {
+        throw new Error('Erro ao carregar metadados dos arquivos');
+      }
+      return await response.json();
+    } catch (error) {
+      console.error('Erro ao buscar metadados:', error);
+      return [];
+    }
+  }
+
+  /**
+   * Função principal adaptada para o navegador
+   * Em vez de gerar os metadados, busca do arquivo JSON
+   */
+  async function initFileManager() {
+    try {
+      console.log('⏳ Carregando metadados dos arquivos...');
+      
+      // Busca os metadados do arquivo JSON
+      const filesMetadata = await fetchFilesMetadata();
+      
+      // Atualiza as estatísticas
+      document.getElementById('total-files').textContent = filesMetadata.length;
+      
+      const totalSize = filesMetadata.reduce((sum, file) => sum + file.sizeInBytes, 0);
+      document.getElementById('total-size').textContent = formatFileSize(totalSize);
+      
+      if (filesMetadata.length > 0) {
+        const lastUpdate = new Date(Math.max(...filesMetadata.map(f => new Date(f.lastModifiedTimestamp)));
+        document.getElementById('last-update').textContent = formatDate(lastUpdate);
+      }
+      
+      // Esconde o indicador de carregamento
+      document.getElementById('loading').style.display = 'none';
+      
+      console.log(`✅ Metadados carregados. Total de arquivos: ${filesMetadata.length}`);
+      
+      // Aqui você pode adicionar a lógica para exibir os arquivos na lista
+      // Por exemplo:
+      const fileList = document.getElementById('file-list');
+      filesMetadata.forEach(file => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <div class="file-item">
+            <span class="file-icon"><i class="fas fa-file"></i></span>
+            <span class="file-name">${file.name}</span>
+            <span class="file-size">${file.size}</span>
+            <span class="file-date">${file.lastModified}</span>
+            <a href="${file.downloadUrl}" class="download-btn" download>
+              <i class="fas fa-download"></i> Download
+            </a>
+          </div>
+        `;
+        fileList.appendChild(li);
+      });
+      
+    } catch (error) {
+      console.error('❌ Erro ao inicializar o gerenciador de arquivos:', error);
+      document.getElementById('loading').innerHTML = `
+        <div class="error-message">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p>Erro ao carregar a lista de arquivos. Por favor, recarregue a página.</p>
+        </div>
+      `;
+    }
+  }
+
+  // Expõe a função para ser chamada quando o DOM estiver pronto
+  window.initFileManager = initFileManager;
+  </script>
+</body>
+  </html>
