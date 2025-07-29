@@ -52,33 +52,45 @@ jobs:
           python-version: '3.8'
 
       # ================================
-      # Passo 3: Instalar dependências necessárias
+      # Passo 3: Cache de dependências pip
+      # ================================
+      - name: "📦 Cache de dependências pip"
+        # Usa a ação de cache para armazenar dependências pip
+        uses: actions/cache@v3
+        with:
+          # Caminho onde o pip armazena os pacotes
+          path: ~/.cache/pip
+          # Chave única para o cache baseada no sistema operacional
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          # Chaves alternativas para restaurar o cache
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      # ================================
+      # Passo 4: Instalar dependências necessárias
       # ================================
       - name: "⚙️ Instalar dependências"
         run: |
           # Atualiza o pip para a versão mais recente
           python -m pip install --upgrade pip
-          # Instala o pacote requests para fazer requisições HTTP
+          # Instala o pacote requests para requisições HTTP
           pip install requests
+          # Instala o black para verificação de formatação
+          pip install black
 
       # ================================
-      # Passo 4: Executar o primeiro script Python (playlists2.py)
+      # Passo 5: Verificar formatação do código
       # ================================
-      - name: "▶️ Executar playlists.m3u.py"
-        # Comando para executar o script Python
-#        run: python playlists.m3u.py
-      
+      - name: "🧹 Verificar formatação do código"
+        # Verifica se o código está formatado corretamente
+        run: black --check .
+
       # ================================
-      # Passo 5: Executar o segundo script Python (playlists.py)
+      # Passo 6: Executar o script principal
       # ================================
       - name: "▶️ Executar playlists.py"
+        # Comando para executar o script Python principal
         run: python playlists.py
-      
-      # ================================
-      # Passo 6: Executar o terceiro script Python (Playlist.py)
-      # ================================
-      # - name: "▶️ Executar Playlist.py"
-        # run: python Playlist.py
 
       # ================================
       # Passo 7: Adicionar data/hora de atualização nos arquivos gerados
@@ -144,7 +156,7 @@ jobs:
         run: |
           # Verifica se houve alterações e exibe mensagem apropriada
           if [ "${{ steps.check-changes.outputs.changes_detected }}" = "true" ]; then
-            echo "Alterações foram commitadas e enviadas com sucesso!"
+            echo "✅ Alterações foram commitadas e enviadas com sucesso!"
           else
-            echo "Nenhuma alteração detectada - nada para commit."
+            echo "ℹ️ Nenhuma alteração detectada - nada para commit."
           fi
