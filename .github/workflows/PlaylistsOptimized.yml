@@ -148,6 +148,10 @@ jobs:
         # Executa apenas se o passo anterior detectou alterações
         if: steps.check-changes.outputs.changes_detected == 'true'
         run: |
+        
+          # Define o fuso horário para Fortaleza
+          export TZ=America/Fortaleza
+          
           # Configura o usuário do git (usando o bot do GitHub Actions)
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -155,7 +159,7 @@ jobs:
           # Adiciona todas as alterações
           git add .
           
-          # Cria um commit com a data/hora atual
+          # Cria um commit com a data/hora atual de Fortaleza
           git commit -m "🔄 Atualização automática - $(date +'%d/%m/%Y - %H:%M:%S')"
           
           # Puxa quaisquer alterações remotas para evitar conflitos
