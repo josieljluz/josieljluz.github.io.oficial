@@ -75,15 +75,33 @@ jobs:
           python -m pip install --upgrade pip
           # Instala o pacote requests para requisições HTTP
           pip install requests
-          # Instala o black para verificação de formatação
+          # Instala o black para formatação de código
           pip install black
 
       # ================================
-      # Passo 5: Verificar formatação do código
+      # Passo 5: Aplicar formatação automática
       # ================================
-      - name: "🧹 Verificar formatação do código"
-        # Verifica se o código está formatado corretamente
-        run: black --check .
+      - name: "✨ Formatar código automaticamente"
+        run: |
+          # Aplica o black para formatar todos os arquivos Python
+          black .
+          
+          # Verifica se o black fez alguma alteração
+          if git diff --quiet; then
+            echo "✅ Nenhuma alteração de formatação necessária"
+          else
+            echo "🔧 Formatação aplicada automaticamente"
+            # Configura o usuário do git para o commit
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            # Adiciona as alterações de formatação
+            git add .
+            git commit -m "🎨 Formatação automática com Black"
+            # Faz push das alterações de formatação
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # ================================
       # Passo 6: Executar o script principal
