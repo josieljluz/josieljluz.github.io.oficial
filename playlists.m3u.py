@@ -4,17 +4,20 @@ import shutil  # Para operações avançadas com arquivos (como apagar diretóri
 import requests  # Para fazer requisições HTTP
 from hashlib import md5  # Para calcular hash MD5 dos arquivos
 import logging  # Para registrar logs do sistema
-from concurrent.futures import ThreadPoolExecutor, as_completed  # Para download paralelo
+from concurrent.futures import (
+    ThreadPoolExecutor,
+    as_completed,
+)  # Para download paralelo
 import time  # Para controlar pausas entre tentativas
 
 # Configuração do sistema de logging (registro de eventos)
 logging.basicConfig(
     level=logging.INFO,  # Nível mínimo de mensagens a serem registradas
-    format='%(asctime)s - %(levelname)s - %(message)s',  # Formato das mensagens
+    format="%(asctime)s - %(levelname)s - %(message)s",  # Formato das mensagens
     handlers=[
         logging.FileHandler("playlists.log"),  # Salva logs em arquivo
-        logging.StreamHandler()  # Mostra logs no console
-    ]
+        logging.StreamHandler(),  # Mostra logs no console
+    ],
 )
 # Cria um logger específico para este módulo
 logger = logging.getLogger(__name__)
@@ -24,7 +27,7 @@ HEADERS = {
     # Cabeçalhos HTTP para simular um navegador Chrome
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
     "Accept": "*/*",  # Aceita qualquer tipo de conteúdo
-    "Connection": "keep-alive"  # Mantém a conexão ativa
+    "Connection": "keep-alive",  # Mantém a conexão ativa
 }
 # Diretório onde os arquivos serão salvos (dentro da pasta 'playlists' no diretório atual)
 OUTPUT_DIR = os.path.join(os.getcwd(), "playlists")
@@ -33,13 +36,14 @@ RETRIES = 3  # Número máximo de tentativas para cada download
 DELAY_BETWEEN_TRIES = 2  # Tempo de espera (em segundos) entre tentativas falhas
 MAX_WORKERS = 5  # Número máximo de downloads simultâneos
 
+
 def validate_url(url):
     """
     Valida se uma URL é válida antes de tentar o download.
-    
+
     Parâmetros:
         url (str): A URL a ser validada
-    
+
     Retorna:
         bool: True se a URL é válida, False caso contrário
     """
@@ -49,15 +53,16 @@ def validate_url(url):
         return False
     return True
 
+
 def download_file(url, save_path, retries=RETRIES):
     """
     Faz o download de um arquivo com tratamento robusto de erros e múltiplas tentativas.
-    
+
     Parâmetros:
         url (str): URL do arquivo a ser baixado
         save_path (str): Caminho local onde o arquivo será salvo
         retries (int): Número de tentativas (usa o valor padrão RETRIES se não informado)
-    
+
     Retorna:
         bool: True se o download foi bem-sucedido, False caso contrário
     """
@@ -69,31 +74,35 @@ def download_file(url, save_path, retries=RETRIES):
     for attempt in range(retries):
         try:
             logger.info(f"Tentativa {attempt + 1}/{retries}: Baixando {url}")
-            
+
             # Faz a requisição HTTP com stream=True para baixar em pedaços
-            with requests.get(url, headers=HEADERS, timeout=TIMEOUT, stream=True) as response:
+            with requests.get(
+                url, headers=HEADERS, timeout=TIMEOUT, stream=True
+            ) as response:
                 # Levanta exceção se o status não for bem-sucedido (ex: 404, 500)
                 response.raise_for_status()
-                
+
                 # Cria o diretório se não existir
                 os.makedirs(os.path.dirname(save_path), exist_ok=True)
-                
+
                 # Abre o arquivo para escrita em modo binário
-                with open(save_path, 'wb') as file:
+                with open(save_path, "wb") as file:
                     # Escreve cada pedaço (chunk) do arquivo
                     for chunk in response.iter_content(chunk_size=8192):
                         if chunk:  # Filtra chunks keep-alive
                             file.write(chunk)
-                
+
                 # Verifica se o arquivo não está vazio
                 if os.path.getsize(save_path) > 0:
                     # Calcula hash MD5 do arquivo
-                    with open(save_path, 'rb') as file:
+                    with open(save_path, "rb") as file:
                         file_hash = md5(file.read()).hexdigest()
                     # Log de sucesso com informações do arquivo
-                    logger.info(f"Sucesso: {save_path} | Tamanho: {os.path.getsize(save_path)} bytes | Hash: {file_hash}")
+                    logger.info(
+                        f"Sucesso: {save_path} | Tamanho: {os.path.getsize(save_path)} bytes | Hash: {file_hash}"
+                    )
                     return True
-                
+
                 # Se o arquivo estiver vazio, remove e loga aviso
                 logger.warning(f"Arquivo vazio: {save_path}")
                 os.remove(save_path)
@@ -113,16 +122,17 @@ def download_file(url, save_path, retries=RETRIES):
     logger.error(f"Falha ao baixar após {retries} tentativas: {url}")
     return False
 
+
 def main():
     """
     Função principal que coordena todo o processo de download.
-    
+
     Retorna:
         bool: True se todos os downloads foram bem-sucedidos, False caso contrário
     """
     try:
         logger.info("Iniciando processo de download para playlists...")
-        
+
         # Limpeza e preparação do diretório de saída
         # Remove o diretório se já existir
         if os.path.exists(OUTPUT_DIR):
@@ -141,20 +151,20 @@ def main():
                 "m3u@proton.me.m3u": "https://gitlab.com/josieljefferson12/playlists/-/raw/main/m3u4u_proton.me.m3u",
                 "playlist.m3u": "https://gitlab.com/josieljefferson12/playlists/-/raw/main/playlist.m3u",
                 "playlists.m3u": "https://gitlab.com/josielluz/playlists/-/raw/main/playlists.m3u",
-                "pornstars.m3u": "https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u"
+                "pornstars.m3u": "https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u",
             },
             "xml.gz": {
                 "epgbrasil.xml.gz": "http://m3u4u.com/epg/3wk1y24kx7uzdevxygz7",
                 "epgbrasilportugal.xml.gz": "http://m3u4u.com/epg/782dyqdrqkh1xegen4zp",
-                "epgportugal.xml.gz": "http://m3u4u.com/epg/jq2zy9epr3bwxmgwyxr5"
-            }
+                "epgportugal.xml.gz": "http://m3u4u.com/epg/jq2zy9epr3bwxmgwyxr5",
+            },
         }
 
         # Processamento paralelo dos downloads
         # Cria um pool de threads para downloads simultâneos
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
             futures = []  # Lista para armazenar as tarefas futuras
-            
+
             # Para cada tipo de arquivo e cada arquivo dentro do tipo
             for ext, files in files_config.items():
                 for filename, url in files.items():
@@ -162,10 +172,10 @@ def main():
                     save_path = os.path.join(OUTPUT_DIR, filename)
                     # Submete a tarefa de download ao executor
                     futures.append(executor.submit(download_file, url, save_path))
-            
+
             # Aguarda a conclusão de todas as tarefas e coleta os resultados
             results = [future.result() for future in as_completed(futures)]
-            
+
             # Verifica se algum download falhou
             if not all(results):
                 logger.error("Alguns downloads falharam. Verifique o log.")
@@ -179,6 +189,7 @@ def main():
     except Exception as e:
         logger.error(f"Erro no processo principal: {str(e)}")
         return False
+
 
 # Ponto de entrada do script
 if __name__ == "__main__":
