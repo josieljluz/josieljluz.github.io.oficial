@@ -2874,3 +2874,50 @@
 2026-04-29 06:05:43,845 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgportugal.xml.gz (1774524 bytes)
 2026-04-29 06:05:43,847 - INFO - Hash MD5 do arquivo: c3719a4df3645bfbb5a81f25540edb4b
 2026-04-29 06:05:43,848 - INFO - Downloads concluídos. Sucessos: 11, Falhas: 0
+2026-04-30 06:09:45,242 - INFO - Limpando arquivos antigos em /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial...
+2026-04-30 06:09:45,242 - INFO - Arquivo removido: epgbrasilportugal.m3u
+2026-04-30 06:09:45,243 - INFO - Arquivo removido: playlists.m3u
+2026-04-30 06:09:45,243 - INFO - Arquivo removido: epgbrasil.m3u
+2026-04-30 06:09:45,243 - INFO - Arquivo removido: PiauiTV.m3u
+2026-04-30 06:09:45,243 - INFO - Arquivo removido: epgbrasilportugal.xml.gz
+2026-04-30 06:09:45,243 - INFO - Arquivo removido: playlist.m3u
+2026-04-30 06:09:45,244 - INFO - Arquivo removido: epgbrasil.xml.gz
+2026-04-30 06:09:45,244 - INFO - Arquivo removido: epgportugal.m3u
+2026-04-30 06:09:45,244 - INFO - Arquivo removido: pornstars.m3u
+2026-04-30 06:09:45,244 - INFO - Arquivo removido: epgportugal.xml.gz
+2026-04-30 06:09:45,245 - INFO - Arquivo removido: m3u@proton.me.m3u
+2026-04-30 06:09:45,245 - INFO - Iniciando downloads...
+2026-04-30 06:09:45,245 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/m3u/3wk1y24kx7uzdevxygz7
+2026-04-30 06:09:45,246 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp
+2026-04-30 06:09:45,246 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/m3u/jq2zy9epr3bwxmgwyxr5
+2026-04-30 06:09:45,247 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/PiauiTV.m3u
+2026-04-30 06:09:45,253 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/m3u4u_proton.me.m3u
+2026-04-30 06:09:45,449 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/m3u@proton.me.m3u (4700379 bytes)
+2026-04-30 06:09:45,458 - INFO - Hash MD5 do arquivo: 17e34181bba3a93ed726df4bc76b9a9c
+2026-04-30 06:09:45,459 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/playlist.m3u
+2026-04-30 06:09:45,463 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/PiauiTV.m3u (76851 bytes)
+2026-04-30 06:09:45,463 - INFO - Hash MD5 do arquivo: ed19d1bee8112f753504aab432876025
+2026-04-30 06:09:45,464 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josielluz/playlists/-/raw/main/playlists.m3u
+2026-04-30 06:09:45,632 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/playlists.m3u (107555 bytes)
+2026-04-30 06:09:45,632 - INFO - Hash MD5 do arquivo: 3114d823758c4d5391acd0714d83bb8c
+2026-04-30 06:09:45,632 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u
+2026-04-30 06:09:45,824 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/playlist.m3u (8080 bytes)
+2026-04-30 06:09:45,824 - INFO - Hash MD5 do arquivo: 5e4f576e8ce1ee516c916d59ed08a851
+2026-04-30 06:09:45,825 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/epg/3wk1y24kx7uzdevxygz7
+2026-04-30 06:09:45,948 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/pornstars.m3u (100426 bytes)
+2026-04-30 06:09:45,949 - INFO - Hash MD5 do arquivo: ed9b31dbe857f86e7df7a0a4e4ecd448
+2026-04-30 06:09:45,949 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/epg/782dyqdrqkh1xegen4zp
+2026-04-30 06:09:46,233 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgbrasilportugal.m3u (368559 bytes)
+2026-04-30 06:09:46,234 - INFO - Hash MD5 do arquivo: 9765c77cc4848aa33c1ae9649f0e9986
+2026-04-30 06:09:46,234 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/epg/jq2zy9epr3bwxmgwyxr5
+2026-04-30 06:09:46,358 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgbrasil.m3u (1930567 bytes)
+2026-04-30 06:09:46,362 - INFO - Hash MD5 do arquivo: dfeb514d50fd67f1ab903bddfc60d921
+2026-04-30 06:09:46,380 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgportugal.m3u (2262657 bytes)
+2026-04-30 06:09:46,386 - INFO - Hash MD5 do arquivo: b8eb7a678d282a0d625d55b2c797de06
+2026-04-30 06:09:47,114 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgbrasil.xml.gz (2908455 bytes)
+2026-04-30 06:09:47,118 - INFO - Hash MD5 do arquivo: 9ce9b57cc21f181bbb9f30fd6dc8946e
+2026-04-30 06:09:47,247 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgbrasilportugal.xml.gz (664063 bytes)
+2026-04-30 06:09:47,248 - INFO - Hash MD5 do arquivo: 0c9b68c9eb9de6d5c28890205fe6fdb2
+2026-04-30 06:09:47,381 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgportugal.xml.gz (1884889 bytes)
+2026-04-30 06:09:47,384 - INFO - Hash MD5 do arquivo: 1740ffe05d3578b351b79f4d81bd5cfa
+2026-04-30 06:09:47,385 - INFO - Downloads concluídos. Sucessos: 11, Falhas: 0
