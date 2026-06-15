@@ -5661,3 +5661,67 @@
 2026-06-14 07:52:56,554 - ERROR - Falha após 3 tentativas: http://m3u4u.com/epg/782dyqdrqkh1xegen4zp
 2026-06-14 07:52:56,554 - INFO - Downloads concluídos. Sucessos: 9, Falhas: 2
 2026-06-14 07:52:56,554 - WARNING - Atenção: 2 arquivos falharam no download
+2026-06-15 09:29:55,841 - INFO - Limpando arquivos antigos em /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial...
+2026-06-15 09:29:55,841 - INFO - Arquivo removido: epgbrasil.m3u
+2026-06-15 09:29:55,841 - INFO - Arquivo removido: playlists.m3u
+2026-06-15 09:29:55,842 - INFO - Arquivo removido: playlist.m3u
+2026-06-15 09:29:55,842 - INFO - Arquivo removido: m3u@proton.me.m3u
+2026-06-15 09:29:55,842 - INFO - Arquivo removido: pornstars.m3u
+2026-06-15 09:29:55,842 - INFO - Arquivo removido: epgbrasil.xml.gz
+2026-06-15 09:29:55,843 - INFO - Arquivo removido: epgportugal.m3u
+2026-06-15 09:29:55,843 - INFO - Arquivo removido: PiauiTV.m3u
+2026-06-15 09:29:55,843 - INFO - Arquivo removido: epgportugal.xml.gz
+2026-06-15 09:29:55,843 - INFO - Iniciando downloads...
+2026-06-15 09:29:55,843 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/m3u/3wk1y24kx7uzdevxygz7
+2026-06-15 09:29:55,844 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp
+2026-06-15 09:29:55,845 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/m3u/jq2zy9epr3bwxmgwyxr5
+2026-06-15 09:29:55,847 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/PiauiTV.m3u
+2026-06-15 09:29:55,847 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/m3u4u_proton.me.m3u
+2026-06-15 09:29:56,136 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/PiauiTV.m3u (76851 bytes)
+2026-06-15 09:29:56,136 - INFO - Hash MD5 do arquivo: ed19d1bee8112f753504aab432876025
+2026-06-15 09:29:56,136 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/playlist.m3u
+2026-06-15 09:29:56,177 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/m3u@proton.me.m3u (4700379 bytes)
+2026-06-15 09:29:56,185 - INFO - Hash MD5 do arquivo: 17e34181bba3a93ed726df4bc76b9a9c
+2026-06-15 09:29:56,186 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josielluz/playlists/-/raw/main/playlists.m3u
+2026-06-15 09:29:56,243 - ERROR - Falha ao baixar http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp. Código: 404
+2026-06-15 09:29:56,243 - ERROR - Erro na tentativa 1 de 3: Falha ao baixar http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp. Código: 404
+2026-06-15 09:29:56,243 - INFO - Aguardando 2 segundos antes de tentar novamente...
+2026-06-15 09:29:56,284 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/playlists.m3u (107555 bytes)
+2026-06-15 09:29:56,284 - INFO - Hash MD5 do arquivo: 3114d823758c4d5391acd0714d83bb8c
+2026-06-15 09:29:56,284 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u
+2026-06-15 09:29:56,371 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/playlist.m3u (8080 bytes)
+2026-06-15 09:29:56,371 - INFO - Hash MD5 do arquivo: 5e4f576e8ce1ee516c916d59ed08a851
+2026-06-15 09:29:56,371 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/epg/3wk1y24kx7uzdevxygz7
+2026-06-15 09:29:56,558 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/pornstars.m3u (100426 bytes)
+2026-06-15 09:29:56,559 - INFO - Hash MD5 do arquivo: ed9b31dbe857f86e7df7a0a4e4ecd448
+2026-06-15 09:29:56,559 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/epg/782dyqdrqkh1xegen4zp
+2026-06-15 09:29:56,939 - ERROR - Falha ao baixar http://m3u4u.com/epg/782dyqdrqkh1xegen4zp. Código: 404
+2026-06-15 09:29:56,939 - ERROR - Erro na tentativa 1 de 3: Falha ao baixar http://m3u4u.com/epg/782dyqdrqkh1xegen4zp. Código: 404
+2026-06-15 09:29:56,939 - INFO - Aguardando 2 segundos antes de tentar novamente...
+2026-06-15 09:29:57,333 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgbrasil.m3u (575422 bytes)
+2026-06-15 09:29:57,334 - INFO - Hash MD5 do arquivo: f49e7db34748ac8a9807f453fc66c3cc
+2026-06-15 09:29:57,334 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/epg/jq2zy9epr3bwxmgwyxr5
+2026-06-15 09:29:57,439 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgportugal.m3u (1972439 bytes)
+2026-06-15 09:29:57,443 - INFO - Hash MD5 do arquivo: ea060b34a8722eeeaea5983a2f10b1d8
+2026-06-15 09:29:57,686 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgbrasil.xml.gz (60031 bytes)
+2026-06-15 09:29:57,687 - INFO - Hash MD5 do arquivo: 7e2e7952f1c4ed27d376d6b4abddbea3
+2026-06-15 09:29:58,246 - INFO - Tentativa 2 de 3: Baixando de: http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp
+2026-06-15 09:29:58,453 - ERROR - Falha ao baixar http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp. Código: 404
+2026-06-15 09:29:58,453 - ERROR - Erro na tentativa 2 de 3: Falha ao baixar http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp. Código: 404
+2026-06-15 09:29:58,453 - INFO - Aguardando 4 segundos antes de tentar novamente...
+2026-06-15 09:29:58,578 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgportugal.xml.gz (449467 bytes)
+2026-06-15 09:29:58,579 - INFO - Hash MD5 do arquivo: 87f7b9bdbd7e1917b404b026681a5509
+2026-06-15 09:29:58,941 - INFO - Tentativa 2 de 3: Baixando de: http://m3u4u.com/epg/782dyqdrqkh1xegen4zp
+2026-06-15 09:29:59,132 - ERROR - Falha ao baixar http://m3u4u.com/epg/782dyqdrqkh1xegen4zp. Código: 404
+2026-06-15 09:29:59,132 - ERROR - Erro na tentativa 2 de 3: Falha ao baixar http://m3u4u.com/epg/782dyqdrqkh1xegen4zp. Código: 404
+2026-06-15 09:29:59,132 - INFO - Aguardando 4 segundos antes de tentar novamente...
+2026-06-15 09:30:02,457 - INFO - Tentativa 3 de 3: Baixando de: http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp
+2026-06-15 09:30:02,731 - ERROR - Falha ao baixar http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp. Código: 404
+2026-06-15 09:30:02,732 - ERROR - Erro na tentativa 3 de 3: Falha ao baixar http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp. Código: 404
+2026-06-15 09:30:02,732 - ERROR - Falha após 3 tentativas: http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp
+2026-06-15 09:30:03,137 - INFO - Tentativa 3 de 3: Baixando de: http://m3u4u.com/epg/782dyqdrqkh1xegen4zp
+2026-06-15 09:30:03,407 - ERROR - Falha ao baixar http://m3u4u.com/epg/782dyqdrqkh1xegen4zp. Código: 404
+2026-06-15 09:30:03,407 - ERROR - Erro na tentativa 3 de 3: Falha ao baixar http://m3u4u.com/epg/782dyqdrqkh1xegen4zp. Código: 404
+2026-06-15 09:30:03,407 - ERROR - Falha após 3 tentativas: http://m3u4u.com/epg/782dyqdrqkh1xegen4zp
+2026-06-15 09:30:03,408 - INFO - Downloads concluídos. Sucessos: 9, Falhas: 2
+2026-06-15 09:30:03,408 - WARNING - Atenção: 2 arquivos falharam no download
