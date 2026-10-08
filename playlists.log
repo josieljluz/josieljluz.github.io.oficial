@@ -4847,3 +4847,107 @@
 2026-10-07 10:06:51,277 - ERROR - Falha após 3 tentativas: http://m3u4u.com/epg/782dyqdrqkh1xegen4zp
 2026-10-07 10:06:51,278 - INFO - Downloads concluídos. Sucessos: 4, Falhas: 7
 2026-10-07 10:06:51,278 - WARNING - Atenção: 7 arquivos falharam no download
+2026-10-08 10:21:03,413 - INFO - Limpando arquivos antigos em /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial...
+2026-10-08 10:21:03,413 - INFO - Arquivo removido: epgportugal.xml.gz
+2026-10-08 10:21:03,414 - INFO - Arquivo removido: epgportugal.m3u
+2026-10-08 10:21:03,414 - INFO - Arquivo removido: epgbrasil.xml.gz
+2026-10-08 10:21:03,414 - INFO - Arquivo removido: epgbrasil.m3u
+2026-10-08 10:21:03,414 - INFO - Iniciando downloads...
+2026-10-08 10:21:03,414 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/m3u/3wk1y24kx7uzdevxygz7
+2026-10-08 10:21:03,415 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp
+2026-10-08 10:21:03,415 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/m3u/jq2zy9epr3bwxmgwyxr5
+2026-10-08 10:21:03,416 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/PiauiTV.m3u
+2026-10-08 10:21:03,416 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/m3u4u_proton.me.m3u
+2026-10-08 10:21:03,603 - ERROR - Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/m3u4u_proton.me.m3u. Código: 403
+2026-10-08 10:21:03,603 - ERROR - Erro na tentativa 1 de 3: Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/m3u4u_proton.me.m3u. Código: 403
+2026-10-08 10:21:03,603 - INFO - Aguardando 2 segundos antes de tentar novamente...
+2026-10-08 10:21:03,645 - ERROR - Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/PiauiTV.m3u. Código: 403
+2026-10-08 10:21:03,645 - ERROR - Erro na tentativa 1 de 3: Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/PiauiTV.m3u. Código: 403
+2026-10-08 10:21:03,645 - INFO - Aguardando 2 segundos antes de tentar novamente...
+2026-10-08 10:21:03,702 - ERROR - Falha ao baixar http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp. Código: 404
+2026-10-08 10:21:03,702 - ERROR - Erro na tentativa 1 de 3: Falha ao baixar http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp. Código: 404
+2026-10-08 10:21:03,702 - INFO - Aguardando 2 segundos antes de tentar novamente...
+2026-10-08 10:21:04,849 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgbrasil.m3u (575422 bytes)
+2026-10-08 10:21:04,851 - INFO - Hash MD5 do arquivo: f49e7db34748ac8a9807f453fc66c3cc
+2026-10-08 10:21:04,851 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/playlist.m3u
+2026-10-08 10:21:04,924 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgportugal.m3u (1972439 bytes)
+2026-10-08 10:21:04,929 - INFO - Hash MD5 do arquivo: ea060b34a8722eeeaea5983a2f10b1d8
+2026-10-08 10:21:04,929 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josielluz/playlists/-/raw/main/playlists.m3u
+2026-10-08 10:21:04,974 - ERROR - Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/playlist.m3u. Código: 403
+2026-10-08 10:21:04,974 - ERROR - Erro na tentativa 1 de 3: Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/playlist.m3u. Código: 403
+2026-10-08 10:21:04,974 - INFO - Aguardando 2 segundos antes de tentar novamente...
+2026-10-08 10:21:05,077 - ERROR - Falha ao baixar https://gitlab.com/josielluz/playlists/-/raw/main/playlists.m3u. Código: 403
+2026-10-08 10:21:05,077 - ERROR - Erro na tentativa 1 de 3: Falha ao baixar https://gitlab.com/josielluz/playlists/-/raw/main/playlists.m3u. Código: 403
+2026-10-08 10:21:05,077 - INFO - Aguardando 2 segundos antes de tentar novamente...
+2026-10-08 10:21:05,605 - INFO - Tentativa 2 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/m3u4u_proton.me.m3u
+2026-10-08 10:21:05,647 - INFO - Tentativa 2 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/PiauiTV.m3u
+2026-10-08 10:21:05,704 - INFO - Tentativa 2 de 3: Baixando de: http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp
+2026-10-08 10:21:05,725 - ERROR - Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/m3u4u_proton.me.m3u. Código: 403
+2026-10-08 10:21:05,725 - ERROR - Erro na tentativa 2 de 3: Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/m3u4u_proton.me.m3u. Código: 403
+2026-10-08 10:21:05,725 - INFO - Aguardando 4 segundos antes de tentar novamente...
+2026-10-08 10:21:05,784 - ERROR - Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/PiauiTV.m3u. Código: 403
+2026-10-08 10:21:05,784 - ERROR - Erro na tentativa 2 de 3: Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/PiauiTV.m3u. Código: 403
+2026-10-08 10:21:05,784 - INFO - Aguardando 4 segundos antes de tentar novamente...
+2026-10-08 10:21:05,885 - ERROR - Falha ao baixar http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp. Código: 404
+2026-10-08 10:21:05,885 - ERROR - Erro na tentativa 2 de 3: Falha ao baixar http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp. Código: 404
+2026-10-08 10:21:05,885 - INFO - Aguardando 4 segundos antes de tentar novamente...
+2026-10-08 10:21:06,977 - INFO - Tentativa 2 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/playlist.m3u
+2026-10-08 10:21:07,079 - INFO - Tentativa 2 de 3: Baixando de: https://gitlab.com/josielluz/playlists/-/raw/main/playlists.m3u
+2026-10-08 10:21:07,144 - ERROR - Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/playlist.m3u. Código: 403
+2026-10-08 10:21:07,144 - ERROR - Erro na tentativa 2 de 3: Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/playlist.m3u. Código: 403
+2026-10-08 10:21:07,144 - INFO - Aguardando 4 segundos antes de tentar novamente...
+2026-10-08 10:21:07,256 - ERROR - Falha ao baixar https://gitlab.com/josielluz/playlists/-/raw/main/playlists.m3u. Código: 403
+2026-10-08 10:21:07,256 - ERROR - Erro na tentativa 2 de 3: Falha ao baixar https://gitlab.com/josielluz/playlists/-/raw/main/playlists.m3u. Código: 403
+2026-10-08 10:21:07,256 - INFO - Aguardando 4 segundos antes de tentar novamente...
+2026-10-08 10:21:09,730 - INFO - Tentativa 3 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/m3u4u_proton.me.m3u
+2026-10-08 10:21:09,788 - INFO - Tentativa 3 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/PiauiTV.m3u
+2026-10-08 10:21:09,865 - ERROR - Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/m3u4u_proton.me.m3u. Código: 403
+2026-10-08 10:21:09,865 - ERROR - Erro na tentativa 3 de 3: Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/m3u4u_proton.me.m3u. Código: 403
+2026-10-08 10:21:09,865 - ERROR - Falha após 3 tentativas: https://gitlab.com/josieljefferson12/playlists/-/raw/main/m3u4u_proton.me.m3u
+2026-10-08 10:21:09,866 - INFO - Tentativa 1 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u
+2026-10-08 10:21:09,889 - INFO - Tentativa 3 de 3: Baixando de: http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp
+2026-10-08 10:21:09,916 - ERROR - Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/PiauiTV.m3u. Código: 403
+2026-10-08 10:21:09,917 - ERROR - Erro na tentativa 3 de 3: Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/PiauiTV.m3u. Código: 403
+2026-10-08 10:21:09,917 - ERROR - Falha após 3 tentativas: https://gitlab.com/josieljefferson12/playlists/-/raw/main/PiauiTV.m3u
+2026-10-08 10:21:09,917 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/epg/3wk1y24kx7uzdevxygz7
+2026-10-08 10:21:09,979 - ERROR - Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u. Código: 403
+2026-10-08 10:21:09,979 - ERROR - Erro na tentativa 1 de 3: Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u. Código: 403
+2026-10-08 10:21:09,979 - INFO - Aguardando 2 segundos antes de tentar novamente...
+2026-10-08 10:21:10,134 - ERROR - Falha ao baixar http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp. Código: 404
+2026-10-08 10:21:10,134 - ERROR - Erro na tentativa 3 de 3: Falha ao baixar http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp. Código: 404
+2026-10-08 10:21:10,134 - ERROR - Falha após 3 tentativas: http://m3u4u.com/m3u/782dyqdrqkh1xegen4zp
+2026-10-08 10:21:10,135 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/epg/782dyqdrqkh1xegen4zp
+2026-10-08 10:21:10,370 - ERROR - Falha ao baixar http://m3u4u.com/epg/782dyqdrqkh1xegen4zp. Código: 404
+2026-10-08 10:21:10,370 - ERROR - Erro na tentativa 1 de 3: Falha ao baixar http://m3u4u.com/epg/782dyqdrqkh1xegen4zp. Código: 404
+2026-10-08 10:21:10,371 - INFO - Aguardando 2 segundos antes de tentar novamente...
+2026-10-08 10:21:10,951 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgbrasil.xml.gz (60031 bytes)
+2026-10-08 10:21:10,951 - INFO - Hash MD5 do arquivo: 7e2e7952f1c4ed27d376d6b4abddbea3
+2026-10-08 10:21:10,951 - INFO - Tentativa 1 de 3: Baixando de: http://m3u4u.com/epg/jq2zy9epr3bwxmgwyxr5
+2026-10-08 10:21:11,148 - INFO - Tentativa 3 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/playlist.m3u
+2026-10-08 10:21:11,261 - INFO - Tentativa 3 de 3: Baixando de: https://gitlab.com/josielluz/playlists/-/raw/main/playlists.m3u
+2026-10-08 10:21:11,293 - ERROR - Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/playlist.m3u. Código: 403
+2026-10-08 10:21:11,293 - ERROR - Erro na tentativa 3 de 3: Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/playlist.m3u. Código: 403
+2026-10-08 10:21:11,293 - ERROR - Falha após 3 tentativas: https://gitlab.com/josieljefferson12/playlists/-/raw/main/playlist.m3u
+2026-10-08 10:21:11,383 - ERROR - Falha ao baixar https://gitlab.com/josielluz/playlists/-/raw/main/playlists.m3u. Código: 403
+2026-10-08 10:21:11,383 - ERROR - Erro na tentativa 3 de 3: Falha ao baixar https://gitlab.com/josielluz/playlists/-/raw/main/playlists.m3u. Código: 403
+2026-10-08 10:21:11,384 - ERROR - Falha após 3 tentativas: https://gitlab.com/josielluz/playlists/-/raw/main/playlists.m3u
+2026-10-08 10:21:11,982 - INFO - Tentativa 2 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u
+2026-10-08 10:21:12,102 - ERROR - Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u. Código: 403
+2026-10-08 10:21:12,102 - ERROR - Erro na tentativa 2 de 3: Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u. Código: 403
+2026-10-08 10:21:12,102 - INFO - Aguardando 4 segundos antes de tentar novamente...
+2026-10-08 10:21:12,131 - INFO - Download concluído: /home/runner/work/josieljluz.github.io.oficial/josieljluz.github.io.oficial/epgportugal.xml.gz (449467 bytes)
+2026-10-08 10:21:12,132 - INFO - Hash MD5 do arquivo: 87f7b9bdbd7e1917b404b026681a5509
+2026-10-08 10:21:12,373 - INFO - Tentativa 2 de 3: Baixando de: http://m3u4u.com/epg/782dyqdrqkh1xegen4zp
+2026-10-08 10:21:12,546 - ERROR - Falha ao baixar http://m3u4u.com/epg/782dyqdrqkh1xegen4zp. Código: 404
+2026-10-08 10:21:12,546 - ERROR - Erro na tentativa 2 de 3: Falha ao baixar http://m3u4u.com/epg/782dyqdrqkh1xegen4zp. Código: 404
+2026-10-08 10:21:12,547 - INFO - Aguardando 4 segundos antes de tentar novamente...
+2026-10-08 10:21:16,106 - INFO - Tentativa 3 de 3: Baixando de: https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u
+2026-10-08 10:21:16,221 - ERROR - Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u. Código: 403
+2026-10-08 10:21:16,221 - ERROR - Erro na tentativa 3 de 3: Falha ao baixar https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u. Código: 403
+2026-10-08 10:21:16,221 - ERROR - Falha após 3 tentativas: https://gitlab.com/josieljefferson12/playlists/-/raw/main/pornstars.m3u
+2026-10-08 10:21:16,551 - INFO - Tentativa 3 de 3: Baixando de: http://m3u4u.com/epg/782dyqdrqkh1xegen4zp
+2026-10-08 10:21:16,673 - ERROR - Falha ao baixar http://m3u4u.com/epg/782dyqdrqkh1xegen4zp. Código: 404
+2026-10-08 10:21:16,673 - ERROR - Erro na tentativa 3 de 3: Falha ao baixar http://m3u4u.com/epg/782dyqdrqkh1xegen4zp. Código: 404
+2026-10-08 10:21:16,673 - ERROR - Falha após 3 tentativas: http://m3u4u.com/epg/782dyqdrqkh1xegen4zp
+2026-10-08 10:21:16,674 - INFO - Downloads concluídos. Sucessos: 4, Falhas: 7
+2026-10-08 10:21:16,674 - WARNING - Atenção: 7 arquivos falharam no download
